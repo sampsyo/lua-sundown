@@ -1,7 +1,7 @@
 package = "lua-sundown"
 version = "0.1-1"
 source = {
-   url = "http://github.com/sampsyo/lua-sundown/tarball/master"
+   url = "git://github.com/sampsyo/lua-sundown.git"
 }
 description = {
    summary = "Process Markdown safely and quickly.",

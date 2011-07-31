@@ -13,7 +13,7 @@ eventually.
 
 You can get `lua-sundown` using [LuaRocks][rocks].
 
-   $ luarocks install https://raw.github.com/sampsyo/lua-sundown/master/lua-sundown-0.1-1.rockspec
+    $ luarocks install https://raw.github.com/sampsyo/lua-sundown/master/lua-sundown-0.1-1.rockspec
 
 ## Author
 
@@ -26,3 +26,4 @@ in a while.
 [rocks]: http://www.luarocks.org/
 [adrian]: https://github.com/sampsyo
 [ldisc]: http://asbradbury.org/projects/lua-discount/
+[markdown]: http://daringfireball.net/projects/markdown/
