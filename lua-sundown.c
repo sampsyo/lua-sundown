@@ -8,6 +8,7 @@
 #include "buffer.h"
 
 #define SUNDOWN_LIBRARY "sundown"
+#define OVERHEAD_GUESS 1.3f
 
 static int sundown_markdown(lua_State *L) {
     const char *indoc;
@@ -23,7 +24,7 @@ static int sundown_markdown(lua_State *L) {
     inbuf.size = indocSize;
 
     // Overhead guess inspired by Redcarpet.
-    targetSize = (int)indocSize * 1.3f;
+    targetSize = (int)indocSize * OVERHEAD_GUESS;
     outbuf = bufnew(128);
     bufgrow(outbuf, targetSize);
 
@@ -45,15 +46,12 @@ static int sundown_markdown(lua_State *L) {
     return 1;
 }
 
-
+// Register the library.
 static const struct luaL_reg sundown[] = {
     {"markdown", sundown_markdown},
     {NULL, NULL}
 };
-
 int luaopen_sundown(lua_State *L) {
-    /* register library */
     luaL_register(L, SUNDOWN_LIBRARY, sundown);
-    
     return 1;
 }
