@@ -13,23 +13,21 @@
 static int sundown_markdown(lua_State *L) {
     const char *indoc;
     size_t indocSize;
-    const char *outdoc;
-    struct buf inbuf, *outbuf, *spbuf;
+    struct buf *inbuf, *outbuf, *spbuf;
     struct mkd_renderer renderer;
     int targetSize;
 
     indoc = luaL_checklstring(L, 1, &indocSize);
-    memset(&inbuf, 0x0, sizeof(struct buf));   
-    inbuf.data = indoc;
-    inbuf.size = indocSize;
+    inbuf = bufnew(128);
+    bufput(inbuf, indoc, indocSize);
 
     // Overhead guess inspired by Redcarpet.
-    targetSize = (int)indocSize * OVERHEAD_GUESS;
+    targetSize = (int)(indocSize * OVERHEAD_GUESS);
     outbuf = bufnew(128);
     bufgrow(outbuf, targetSize);
 
     sdhtml_renderer(&renderer, 0, NULL);
-    sd_markdown(outbuf, &inbuf, &renderer, 0);
+    sd_markdown(outbuf, inbuf, &renderer, 0);
 
     // Smartypants -- should maybe make this optional, but it's
     // standard in most Markdown libraries so it's the default.
@@ -39,6 +37,7 @@ static int sundown_markdown(lua_State *L) {
 
     lua_pushlstring(L, spbuf->data, spbuf->size);
     
+    bufrelease(inbuf);
     bufrelease(outbuf);
     bufrelease(spbuf);
     sdhtml_free_renderer(&renderer);
