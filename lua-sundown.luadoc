@@ -1,0 +1,10 @@
+--- Process Markdown safely and quickly.
+-- Sundown is a C library for processing Markdown documents. This is
+-- a simple Lua binding for Sundown.
+module "sundown"
+
+--- Convert Markdown to HTML.
+-- Transforms a Markdown document into an HTML document.
+-- @param mkdn A string containing a Markdown document.
+-- @return A string containing the resulting HTML.
+function new()

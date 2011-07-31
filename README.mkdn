@@ -1,0 +1,28 @@
+# lua-sundown
+
+This is a simple [Lua][lua] binding for the [Sundown][sundown] C library for
+processing [Markdown][markdown]. It's real easy to use:
+
+    require('sundown')
+    sundown.markdown('hey there')
+
+The binding doesn't support Markdown extensions, but I'll get around to that
+eventually.
+
+## Installation
+
+You can get `lua-sundown` using [LuaRocks][rocks].
+
+   $ luarocks install https://raw.github.com/sampsyo/lua-sundown/master/lua-sundown-0.1-1.rockspec
+
+## Author
+
+`lua-sundown` is by [Adrian Sampson][adrian]. I built it because
+[lua-discount][ldisc] can crash on malformed Markdown and it hasn't been updated
+in a while.
+
+[lua]: http://www.lua.org/
+[sundown]: https://github.com/tanoku/sundown
+[rocks]: http://www.luarocks.org/
+[adrian]: https://github.com/sampsyo
+[ldisc]: http://asbradbury.org/projects/lua-discount/
