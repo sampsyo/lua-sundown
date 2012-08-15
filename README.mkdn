@@ -19,8 +19,9 @@ You can get `lua-sundown` using [LuaRocks][rocks].
 
 `lua-sundown` is by [Adrian Sampson][adrian]. I built it because
 [lua-discount][ldisc] can crash on malformed Markdown and it hasn't been updated
-in a while.
+in a while. The library is made available under [the MIT license][mit].
 
+[mit]: http://www.opensource.org/licenses/mit-license.php
 [lua]: http://www.lua.org/
 [sundown]: https://github.com/tanoku/sundown
 [rocks]: http://www.luarocks.org/
